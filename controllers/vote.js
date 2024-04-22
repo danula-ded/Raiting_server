@@ -1,5 +1,4 @@
-const parseBody = require("../appModules/http-utils/parse-body");
-
+const { parseBody } = require("../appModules/http-utils");
 async function voteRouteController(req, res) {
   if (req.method !== "POST") {
     res.statusCode = 404;
