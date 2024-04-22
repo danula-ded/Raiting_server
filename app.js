@@ -1,37 +1,24 @@
-// app.js
-
-const fs = require("fs");
-const { readFile } = require("./files/read-file");
-
-readFile();
+const mainRouteController = require("./controllers/main.js");
+const defaultRouteController = require("./controllers/default.js");
+const gameRouteController = require("./controllers/game.js");
+const voteRouteController = require("./controllers/vote.js");
 
 const http = require("http");
 const server = http.createServer((req, res) => {
   const url = req.url;
   switch (url) {
     case "/":
-      if (req.method === "GET") {
-        res.statusCode = 200;
-        res.end("Спасибо за запрос, скоро придумаю, что тебе ответить");
-      }
+      mainRouteController(res, "/index.html", ".html");
       break;
     case "/game":
-      // Если метод отличается от GET, возвращаем сообщение с ошибкой
-      if (req.method === "GET") {
-        res.statusCode = 200;
-        res.end("Спасибо за запрос, скоро придумаю, что тебе ответить");
-      }
+      gameRouteController(res);
       break;
     case "/vote":
-      if (req.method === "POST") {
-        res.statusCode = 200;
-        res.end("Спасибо за запрос, скоро придумаю, что тебе ответить");
-      }
+      voteRouteController(req, res);
       break;
     default:
-      res.statusCode = 404;
-      res.end("Not Found");
+      defaultRouteController(res, url);
   }
 });
 
-server.listen(3000);
+server.listen(3005);
