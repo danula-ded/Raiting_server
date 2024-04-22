@@ -3,15 +3,16 @@ async function voteRouteController(req, res) {
   if (req.method !== "POST") {
     res.statusCode = 404;
     res.end("Not Found");
-  }
-  parseBody(req, (err, body) => {
-    if (err) {
+  } else {
+    try {
+      const body = await parseBody(req);
+      console.log(body);
+      res.statusCode = 200;
+      res.end("Success!");
+    } catch (error) {
       res.statusCode = 500;
       res.end("Internal Server Error");
     }
-    console.log(body);
-    res.statusCode = 200;
-    res.end("Success!");
-  });
+  }
 }
 module.exports = voteRouteController;

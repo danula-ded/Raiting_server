@@ -1,4 +1,3 @@
-// modules/randomizers/index.js
 const mainRouteController = require("./main.js");
 const defaultRouteController = require("./default");
 const gameRouteController = require("./game.js");
