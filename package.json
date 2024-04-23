@@ -1,0 +1,24 @@
+{
+  "name": "raiting_server",
+  "version": "1.1.0",
+  "description": "Проектной работы по бэкенду.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danula-ded/Raiting_server.git"
+  },
+  "author": "danula-ded",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danula-ded/Raiting_server/issues"
+  },
+  "homepage": "https://github.com/danula-ded/Raiting_server#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
